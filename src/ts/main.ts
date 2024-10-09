@@ -2,8 +2,10 @@
 import shuffle from "array-shuffle";
 import Fuse from "fuse.js";
 
-import data from "./data";
-import PokemonCard from "./components/PokemonCard";
+// Imports
+import "../scss/main.scss"; // Styling
+import data from "./data.json"; // Data
+import PokemonCard from "./components/PokemonCard"; // Component
 
 // === DOM Targeting ===
 const inputEl = document.querySelector('input[type="text"]');
@@ -64,7 +66,7 @@ inputEl.addEventListener("input", (e) => {
   debounceTimer = setTimeout(() => {
     const currentInput = e.target.value.trim().toLowerCase();
     handleSearch(currentInput);
-  }, 500);
+  }, 400);
 });
 
 // Add / to active search

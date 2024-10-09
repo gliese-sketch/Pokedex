@@ -6,10 +6,13 @@
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Pokemon"
+  ],
+  "author": "GlieseSketch",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
     "parcel": "^2.12.0"
   },
   "dependencies": {
