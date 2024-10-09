@@ -7,6 +7,16 @@ import "../scss/main.scss"; // Styling
 import data from "./data.json"; // Data
 import PokemonCard from "./components/PokemonCard"; // Component
 
+// Custom type representing a pokemon object
+interface Pokemon {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  link: string;
+  abilities: string[];
+}
+
 // === DOM Targeting ===
 const inputEl = document.querySelector(
   'input[type="text"]'
@@ -16,7 +26,7 @@ const dataRow = document.querySelector("[data-row]") as HTMLDivElement;
 renderPokemon(shuffle(data));
 
 // Give list, it will render them
-function renderPokemon(list: object[]): void {
+function renderPokemon(list: Pokemon[]): void {
   dataRow.textContent = "";
 
   if (!list.length) {
@@ -29,7 +39,7 @@ function renderPokemon(list: object[]): void {
     dataRow.appendChild(pokemon);
   }
 
-  list.forEach((pokemonObj) => {
+  list.forEach((pokemonObj: Pokemon) => {
     const pokemon = PokemonCard(pokemonObj);
     dataRow.appendChild(pokemon);
   });
@@ -45,7 +55,7 @@ function handleSearch(input: string): void {
   const fuse = new Fuse(data, options);
 
   // Perform search
-  function performSearch(): object[] {
+  function performSearch(): Pokemon[] {
     if (!input) return data;
 
     const searched = fuse.search(input);
@@ -58,7 +68,7 @@ function handleSearch(input: string): void {
 }
 
 let debounceTimer: ReturnType<typeof setTimeout>;
-inputEl.addEventListener("input", (e) => {
+inputEl.addEventListener("input", (e: Event) => {
   clearTimeout(debounceTimer);
 
   const target = e.target as HTMLInputElement;

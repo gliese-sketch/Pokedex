@@ -1,5 +1,5 @@
 // This generates a card component from the data
-export default function (data) {
+export default function (data): HTMLDivElement {
   const { image, link, description, name } = data;
 
   const div = document.createElement("div");
