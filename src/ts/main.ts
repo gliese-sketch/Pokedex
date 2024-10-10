@@ -39,10 +39,14 @@ function renderPokemon(list: Pokemon[]): void {
     dataRow.appendChild(pokemon);
   }
 
+  const fragment = document.createDocumentFragment();
+
   list.forEach((pokemonObj: Pokemon) => {
     const pokemon = PokemonCard(pokemonObj);
-    dataRow.appendChild(pokemon);
+    fragment.appendChild(pokemon);
   });
+
+  dataRow.appendChild(fragment);
 }
 
 // Will be invoked on search
