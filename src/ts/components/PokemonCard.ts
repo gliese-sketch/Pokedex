@@ -1,5 +1,7 @@
+import { Pokemon } from "../interfaces/Pokemon";
+
 // This generates a card component from the data
-export default function (data): HTMLDivElement {
+export default function (data: Pokemon): HTMLDivElement {
   const { image, link, description, name } = data;
 
   const div = document.createElement("div");
