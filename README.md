@@ -4,7 +4,7 @@ A webapp that renders pokemon coming from `data.json`
 
 ## Preview
 
-![image](./Mockup.png)
+![image](./assets/Mockup.png)
 
 ## Features
 
